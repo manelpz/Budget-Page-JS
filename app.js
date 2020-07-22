@@ -43,5 +43,4 @@ var controller = (function(budgetCtrl,UICtrl){
             ctrlAddItem();
         }
     });
-
 })(budgetController, UIController);
