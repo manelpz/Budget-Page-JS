@@ -40,10 +40,10 @@ var budgetController = (function(){
 
         data.allItems[type].push(newItem);
         return newItem;
-    },
+    }/*,
     testing: function(){
         console.log(data);
-    }
+    }*/
   };
 
 })();
@@ -103,6 +103,7 @@ var controller = (function(budgetCtrl,UICtrl){
     };
 
 })(budgetController, UIController);
+
 
 
 controller.init();
