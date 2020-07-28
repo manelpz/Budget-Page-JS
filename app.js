@@ -67,6 +67,11 @@ var UIController = (function(){
                 value: document.querySelector(DOMstrings.inputValue).value
             };
         }, 
+        addListItem: function(obj, type){
+            var html;
+            html = '<div class="item clearfix" id="income-0"><div class="item__description">Salary</div>< class="right clearfix"><div class="item__value">+ 2,100.00</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+
+        },
         getDOMstring:function(){
             return DOMstrings;
         }
