@@ -76,7 +76,12 @@ var UIController = (function(){
             }
             else if (type =="exp" ){
                 html = '<div class="item clearfix" id="expense-0"><div class="item__description">%%description</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
-                }
+            }
+
+            newHtml = html.replace('%id%', obj.ID);
+            newHtml = newHtml.replace('%description%', obj.description);
+            newHtml = newHtml.replace('%value%', obj.value);
+
             },
         getDOMstring:function(){
             return DOMstrings;
