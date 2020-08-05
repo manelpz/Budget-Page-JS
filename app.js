@@ -59,7 +59,7 @@ var budgetController = (function(){
             return current.id;
         });
 
-       // index.data.allIt
+        index.data.allIt
     },
 
     calculateBudget: function(){
@@ -160,6 +160,8 @@ var UIController = (function(){
                 document.querySelector(DOMstrings.percentageLabel).textContent = '---'
             }
         },
+
+        test
         getDOMstring:function(){
             return DOMstrings;
         }
