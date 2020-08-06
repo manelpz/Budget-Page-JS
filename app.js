@@ -161,7 +161,7 @@ var UIController = (function(){
             }
         },
 
-        test
+        
         getDOMstring:function(){
             return DOMstrings;
         }
