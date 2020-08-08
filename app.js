@@ -36,8 +36,9 @@ var budgetController = (function(){
   return {
     addItem: function(type,des,val){
         var newItem,ID;
-        if (data.allItems[type].lenght > 0){
-          ID = data.allItems[type][data.allItems[type].lenght-1].id + 1;
+
+        if (data.allItems[type].length > 0){
+          ID = data.allItems[type][data.allItems[type].length-1].id + 1;
         }else{
             ID = 0;
         }
@@ -58,7 +59,6 @@ var budgetController = (function(){
       ids = data.allItems[type].map(function(current){
         return current.id;
       });
-
       index = ids.indexOf(id);
 
       if(index !== -1){
@@ -217,7 +217,9 @@ var controller = (function(budgetCtrl,UICtrl){
         if(itemID){
             splitID = itemID.split('-');
             type = splitID[0];
-            ID = splitID[1];
+            ID = parseInt(splitID[1]);
+
+            budgetCtrl.deleteItem(type,ID);
         }
             
     };
