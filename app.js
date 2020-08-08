@@ -55,11 +55,16 @@ var budgetController = (function(){
     deleteItem: function(type, id){
         var ids, index;
 
-        ids = data.allItems[type].map(function(current){
+        ids = data.allItems[type].map(function(current){s
             return current.id;
         });
 
-        index.data.allIt
+        index = ids.indexOf(id);
+
+        if(index !=== -1){
+            data.allItems[type].splice(index,1);
+
+        }
     },
 
     calculateBudget: function(){
@@ -160,8 +165,6 @@ var UIController = (function(){
                 document.querySelector(DOMstrings.percentageLabel).textContent = '---'
             }
         },
-
-        
         getDOMstring:function(){
             return DOMstrings;
         }
