@@ -118,7 +118,6 @@ var UIController = (function(){
         container: '.container'
     };
 
-
     return {
         getInput:function(){
             return{
@@ -211,7 +210,11 @@ var controller = (function(budgetCtrl,UICtrl){
         // 3. Display the budget on the UI
         UICtrl.displayBudget(budget);
     };
- 
+
+    var updatePercentages = function(){
+
+    };
+
     var ctrlAddItem = function(){
         var input, newItem;
         input = UICtrl.getInput();
@@ -223,6 +226,8 @@ var controller = (function(budgetCtrl,UICtrl){
             UICtrl.clearFields();
 
             updateBudget();
+
+            updatePercentages();
         }
     };
     
