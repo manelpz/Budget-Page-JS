@@ -7,7 +7,14 @@ var budgetController = (function(){
       this.percentage = -1;
   };
   Expense.prototype.calcPercentage = function(totalIncome){
-
+    if(totalIncome > 0){
+        this.percentage = Math.round((this.value/totalIncome) * 100);
+    }else{
+        this.percentage = -1;
+    }
+  };
+  Expense.prototype.getPercetage = function(){
+        return this.percentage;
   };
 
   var Income = function(id,description,value){
