@@ -4,6 +4,10 @@ var budgetController = (function(){
       this.id = id;
       this.description = description;
       this.value = value;
+      this.percentage = -1;
+  };
+  Expense.prototype.calcPercentage = function(totalIncome){
+
   };
 
   var Income = function(id,description,value){
@@ -252,6 +256,8 @@ var controller = (function(budgetCtrl,UICtrl){
             
             // 3. Update and show the new budget
             updateBudget();
+
+            updatePercentages();
 
         }
     };
