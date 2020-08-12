@@ -6,14 +6,15 @@ var budgetController = (function(){
       this.value = value;
       this.percentage = -1;
   };
-  Expense.prototype.calcPercentages = function(totalIncome){
+  Expense.prototype.calcPercentage = function(totalIncome){
     if(totalIncome > 0){
         this.percentage = Math.round((this.value/totalIncome) * 100);
     }else{
         this.percentage = -1;
     }
   };
-  Expense.prototype.getPercentages = function(){
+
+  Expense.prototype.getPercentage = function(){
         return this.percentage;
   };
 
@@ -149,25 +150,29 @@ var UIController = (function(){
             };
         }, 
 
-        addListItem: function(obj, type){
-            var html, newHtml;
+        addListItem: function(obj, type) {
+            var html, newHtml, element;
+            // Create HTML string with placeholder text
             
             if (type === 'inc') {
                 element = DOMstrings.incomeContainer;
                 
                 html = '<div class="item clearfix" id="inc-%id%"> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             } else if (type === 'exp') {
-                element = DOMstrings.expensesContainer;
+                element = DOMstrings.expenseContainer;
                 
                 html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             }
-
+            
+            // Replace the placeholder text with some actual data
             newHtml = html.replace('%id%', obj.id);
             newHtml = newHtml.replace('%description%', obj.description);
             newHtml = newHtml.replace('%value%', obj.value);
-
+            
+            // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
-            },
+
+        },
         deleteListItem: function(selectorID) {
             
                 var el = document.getElementById(selectorID);
@@ -235,7 +240,7 @@ var controller = (function(budgetCtrl,UICtrl){
 
     var updatePercentages = function(){
 
-        budgetCtrl.calcPercentages();
+        budgetCtrl.calculatePercentages();
 
         var percentages = budgetCtrl.getPercentages();
 
