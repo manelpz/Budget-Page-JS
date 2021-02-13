@@ -368,20 +368,3 @@ var controller = (function(budgetCtrl,UICtrl){
 
 controller.init();
 
-
-controller.init();
-
-
-controller.init();
-
-
-controller.init();
-
-
-controller.init();
-
-
-controller.init();
-
-
-controller.init();
